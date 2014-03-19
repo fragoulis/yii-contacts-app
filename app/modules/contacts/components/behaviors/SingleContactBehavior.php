@@ -19,6 +19,11 @@ class SingleContactBehavior extends ContactBehaviorBase {
 	 */
 	public $relationName = 'contact';
 	/**
+	 * The model class name
+	 * @var string
+	 */
+	public $className = 'Contact';
+	/**
 	 * @var string the relation type
 	 */
 	protected $relationType = CActiveRecord::BELONGS_TO;
@@ -28,7 +33,7 @@ class SingleContactBehavior extends ContactBehaviorBase {
 			throw new CException(Yii::t('Contact.main', 'You must set $attribute, $relationName, $relationType.'));
 		}
 
-		$owner->getMetadata()->addRelation($this->relationName, [$this->relationType, 'Contact', $this->attribute]);
+		$owner->getMetadata()->addRelation($this->relationName, [$this->relationType, $this->className, $this->attribute]);
 		parent::attach($owner);
 	}
 

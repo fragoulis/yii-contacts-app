@@ -24,6 +24,11 @@
 	 */
 	public $relationName = 'contacts';
 	/**
+	 * The model class name
+	 * @var string
+	 */
+	public $className = 'Contact';
+	/**
 	 * @var string the relation type
 	 */
 	protected $relationType = CActiveRecord::MANY_MANY;
@@ -33,7 +38,7 @@
 			throw new CException(Yii::t('Contact.main', 'You must set $attribute, $relationName, $relationType, $relationAttribute, $relationTable.'));
 		}
 
-		$owner->getMetadata()->addRelation($this->relationName, [$this->relationType, 'Contact', "{$this->relationTable}({$this->relationAttribute},{$this->attribute})"]);
+		$owner->getMetadata()->addRelation($this->relationName, [$this->relationType, $this->className, "{$this->relationTable}({$this->relationAttribute},{$this->attribute})"]);
 		parent::attach($owner);
 	}
 

@@ -1,5 +1,12 @@
 <?php
 
+class TestContact extends Contact {
+    public static function model($className=__CLASS__)
+    {
+        return parent::model($className);
+    }
+}
+
 class Person extends CActiveRecord {
 	public function tableName()
     {
@@ -26,6 +33,7 @@ class Person extends CActiveRecord {
         return [
             'ContactBehavior' => [
                 'class' => 'MultiContactBehavior',
+                'className' => 'TestContact',
                 'attribute' => 'contact_id',
                 'relationAttribute' => 'person_id',
                 'relationTable' => 'person_contact',
@@ -63,6 +71,7 @@ class Store extends CActiveRecord {
         return [
             'ContactBehavior' => [
                 'class' => 'SingleContactBehavior',
+                'className' => 'TestContact',
                 'attribute' => 'contact_id',
             ],
         ];

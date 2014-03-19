@@ -18,6 +18,9 @@ return array(
 		'application.components.*',
 		'application.modules.contacts.models.*',
 		'application.modules.contacts.components.*',
+		'application.modules.contacts.components.behaviors.*',
+		'application.modules.contacts.components.enums.*',
+		'application.modules.contacts.components.interfaces.*',
 	),
 
 	'modules'=>array(

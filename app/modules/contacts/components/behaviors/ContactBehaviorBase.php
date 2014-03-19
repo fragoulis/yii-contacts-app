@@ -19,11 +19,4 @@ class ContactBehaviorBase extends CActiveRecordBehavior implements Reachable {
 	public function clearContacts() {
 		throw new CException('The method "' . __FUNCTION__ . '" is not supported.');
 	}
-
-	public function addPhoneNumber($contact, $phoneNumber) {
-		$number = new ContactNumber;
-		$number->setAttributes($phoneNumber);
-		$number->contact_id = $contact->id;
-		return $number->save();
-	}
 }

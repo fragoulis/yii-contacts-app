@@ -30,7 +30,7 @@
  * The followings are the available model relations:
  * @property ContactNumber[] $phoneNumbers
  */
-class Contact extends CActiveRecord
+class Contact extends CActiveRecord implements ContactInterface
 {
     /**
      * @return string the associated database table name
@@ -54,6 +54,7 @@ class Contact extends CActiveRecord
             array('is_active', 'boolean'),
             array('email, pobox, street_no, address_display, details', 'length', 'max'=>255),
             array('lat, lng', 'length', 'max'=>3),
+            array('lat, lng, email, pobox, street_no, address_display, details','default', 'setOnEmpty'=>true, 'value'=>null),
             array('created_at, updated_at', 'date', 'format' => 'yyyy-MM-dd hh:mm:ss'),
             array('location_id', 'validateThatEitherAddressOrPhoneExist', 'on' => 'strict'),
             array('id, country_id, weight, email, lat, lng, location_id, type, pobox, street_no, address_display, details, is_active, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -143,6 +144,17 @@ class Contact extends CActiveRecord
         return parent::model($className);
     }
 
+    public function behaviors() {
+        return [
+            'CTimestampBehavior' => [
+                'class' => 'zii.behaviors.CTimestampBehavior',
+                'createAttribute' => 'created_at',
+                'updateAttribute' => 'updated_at',
+                'timestampExpression' => 'date("Y-m-d H:i:s")',
+            ],
+        ];
+    }
+
     //
     // VALIDATORS
     //
@@ -153,22 +165,6 @@ class Contact extends CActiveRecord
                 $this->addError('location_id', Yii::t('Contact.main', 'You need to either set an address or at least one phone number.'));
             }
         }
-    }
-
-    //
-    // EVENTS
-    //
-
-    public function beforeSave() {
-        if(parent::beforeSave()) {
-            if($this->getIsNewRecord()) {
-                $this->created_at = date('Y-m-d H:i:s');
-            } else {
-                $this->updated_at = date('Y-m-d H:i:s');
-            }
-            return true;
-        }
-        return false;
     }
 
     //
@@ -204,26 +200,12 @@ class Contact extends CActiveRecord
     // 
 
     public static function create($attributes, $scenario = 'insert') {
-        $model = new Contact($scenario);
+        $className = get_class_name();
+        $model = new $className($scenario);
         $model->setAttributes( $attributes );
         if( $model->save() ) {
             return $model;
         }
         return null;
-    }
-
-    /**
-     * 
-     * 
-     * @param ContactNumber $number the number to add
-     * @return boolean true if addition was successfull, false otherwise
-     */
-    public function addPhoneNumber(ContactNumber $number) {
-        if( $this->getIsNewRecord() ) {
-            throw new CException(Yii::t('Contact.main', 'You cannot add a phone number before you save the record.'));
-        }
-
-        $number->contact_id = $this->id;
-        return $number->save();
     }
 }

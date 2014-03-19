@@ -107,4 +107,18 @@ class ContactNumber extends CActiveRecord
     {
         return parent::model($className);
     }
+
+    //
+    // METHODS
+    //
+    
+    /**
+     * [assign description]
+     * @param  Contact $contact [description]
+     * @return ContactNumber
+     */
+    public function assign(Contact $contact) {
+        $this->contact_id = $contact->id;
+        return $this;
+    }
 }

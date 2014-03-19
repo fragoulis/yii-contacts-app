@@ -27,7 +27,7 @@ interface Reachable {
 
 	// public function addAddress($contact, $address);
 
-	public function addPhoneNumber($contact, $phoneNumber);
+	// public function addPhoneNumber($contact, $phoneNumber);
 
 	// public function addPhoneNumbers($contact, $phoneNumbers);
 
