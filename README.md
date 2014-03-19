@@ -6,6 +6,9 @@ A Contacts module for Yii
 # How to install
 
 * Download the module
+
+`git clone git@github.com:jfragoulis/yii-contacts.git /path/to/project/protected/modules/contacts`
+
 * Save it in your project's extensions forlder
 * Update your project's configuration (web and console application).
 
