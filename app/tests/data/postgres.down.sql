@@ -1,0 +1,3 @@
+DROP TABLE store CASCADE;
+DROP TABLE person_contact CASCADE;
+DROP TABLE person CASCADE;
