@@ -46,7 +46,7 @@ class m140318_111923_install extends CDbMigration
 		$db = $this->getDbConnection();
 		$db->createCommand()->setText($this->getDbConnection()->getSchema()->dropTable('{{contact_number}}') . ' CASCADE')->execute();
 		$db->createCommand()->setText($this->getDbConnection()->getSchema()->dropTable('{{contact}}') . ' CASCADE')->execute();
-        $db->createCommand('DROP TYPE contact_type')->execute();
-        $db->createCommand('DROP TYPE contact_number_type')->execute();
+		$db->createCommand('DROP TYPE contact_type')->execute();
+		$db->createCommand('DROP TYPE contact_number_type')->execute();
 	}
 }

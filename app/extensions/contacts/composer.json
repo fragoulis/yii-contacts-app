@@ -13,9 +13,9 @@
             "role": "Developer"
         }
     ],
-        "support": {
+    "support": {
         "issues": "https://github.com/jfragoulis/yii-contacts-app/issues",
         "wiki": "https://github.com/jfragoulis/yii-contacts-app/wiki",
-        "source": "https://github.com/jfragoulis/yii-contacts"
+        "source": "https://github.com/jfragoulis/yii-contacts/tree/master"
     }
 }
