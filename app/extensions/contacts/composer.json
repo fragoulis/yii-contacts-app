@@ -1,6 +1,6 @@
 {
 	"name": "jfragoulis/yii-contacts",
-	"type": "yii-module",
+	"type": "yii-extension",
 	"description": "Extension for the Yii Web Programming Framework",
 	"keywords": ["contacts", "yii"],
 	"homepage": "https://github.com/jfragoulis/yii-contacts",
@@ -17,8 +17,5 @@
 		"issues": "https://github.com/jfragoulis/yii-contacts-app/issues",
 		"wiki": "https://github.com/jfragoulis/yii-contacts-app/wiki",
 		"source": "https://github.com/jfragoulis/yii-contacts/tree/master"
-	},
-	"require": {
-		"composer/installers": "~1.0"
 	}
 }

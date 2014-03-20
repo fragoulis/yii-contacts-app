@@ -38,7 +38,12 @@
 			throw new CException(Yii::t('Contact.main', 'You must set $attribute, $relationName, $relationType, $relationAttribute, $relationTable.'));
 		}
 
-		$owner->getMetadata()->addRelation($this->relationName, [$this->relationType, $this->className, "{$this->relationTable}({$this->relationAttribute},{$this->attribute})"]);
+		$owner->getMetadata()->addRelation($this->relationName, [
+			$this->relationType, 
+			$this->className, 
+			"{$this->relationTable}({$this->relationAttribute},{$this->attribute})",
+			'order' => $this->relationName . '.weight DESC'
+		]);
 		parent::attach($owner);
 	}
 
