@@ -1,21 +1,24 @@
 {
-    "name": "jfragoulis/yii-contacts",
-    "type": "yii-module",
-    "description": "Extension for the Yii Web Programming Framework",
-    "keywords": ["contacts", "yii"],
-    "homepage": "https://github.com/jfragoulis/yii-contacts",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "John Fragkoulis",
-            "email": "john.fragkoulis@gmail.com",
-            "homepage": "http://johnfragkoulis.wordpress.com",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/jfragoulis/yii-contacts-app/issues",
-        "wiki": "https://github.com/jfragoulis/yii-contacts-app/wiki",
-        "source": "https://github.com/jfragoulis/yii-contacts/tree/master"
-    }
+	"name": "jfragoulis/yii-contacts",
+	"type": "yii-module",
+	"description": "Extension for the Yii Web Programming Framework",
+	"keywords": ["contacts", "yii"],
+	"homepage": "https://github.com/jfragoulis/yii-contacts",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "John Fragkoulis",
+			"email": "john.fragkoulis@gmail.com",
+			"homepage": "http://johnfragkoulis.wordpress.com",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/jfragoulis/yii-contacts-app/issues",
+		"wiki": "https://github.com/jfragoulis/yii-contacts-app/wiki",
+		"source": "https://github.com/jfragoulis/yii-contacts/tree/master"
+	},
+	"require": {
+		"composer/installers": "~1.0"
+	}
 }
