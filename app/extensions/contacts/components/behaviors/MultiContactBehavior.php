@@ -41,7 +41,7 @@
 		$owner->getMetadata()->addRelation($this->relationName, [
 			$this->relationType, 
 			$this->className, 
-			"{$this->relationTable}({$this->relationAttribute},{$this->attribute})",
+			"{{{$this->relationTable}}}({$this->relationAttribute},{$this->attribute})",
 			'order' => $this->relationName . '.weight DESC'
 		]);
 		parent::attach($owner);
