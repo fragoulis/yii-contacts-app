@@ -11,14 +11,7 @@ return array(
 
 	// application components
 	'components'=>array(
-		'db' => array(
-            'connectionString' => 'pgsql:host=localhost;dbname=yii-contacts;port=5432',
-            'emulatePrepare' => false,
-            'username' => 'postgres',
-            'password' => 'postgres',
-            'charset' => 'utf8',
-            'tablePrefix' => '',
-        ),
+		'db' => require 'db.php',
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(

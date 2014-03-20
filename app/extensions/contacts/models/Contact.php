@@ -1,5 +1,9 @@
 <?php
 
+Yii::import('ext.contacts.components.enums.*');
+Yii::import('ext.contacts.components.interfaces.*');
+Yii::import('ext.contacts.components.behaviors.*');
+
 /**
  * 
  * 

@@ -16,11 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'application.modules.contacts.models.*',
-		'application.modules.contacts.components.*',
-		'application.modules.contacts.components.behaviors.*',
-		'application.modules.contacts.components.enums.*',
-		'application.modules.contacts.components.interfaces.*',
+		'ext.contacts.models.*',
 	),
 
 	'modules'=>array(
@@ -30,7 +26,6 @@ return array(
 			'ipFilters' => array(),
 			// 'ipFilters'=>array('127.0.0.1','::51'),
 		),
-		'contacts',
 	),
 
 	// application components
@@ -50,17 +45,7 @@ return array(
 			),
 		),
 		*/
-		'db' => array(
-			'enableProfiling' => true,
-			'enableParamLogging' => true,
-
-            'connectionString' => 'pgsql:host=localhost;dbname=yii-contacts;port=5432',
-            'emulatePrepare' => false,
-            'username' => 'postgres',
-            'password' => 'postgres',
-            'charset' => 'utf8',
-            'tablePrefix' => '',
-        ),
+		'db' => require 'db.php',
 		'errorHandler'=>array(
 			'errorAction'=>'site/error',
 		),
